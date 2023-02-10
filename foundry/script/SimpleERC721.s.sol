@@ -7,8 +7,9 @@ import "../src/SimpleERC721.sol";
 contract SimpleERC721Script is Script {
     function setUp() public {}
 
-    function run() public {
-        vm.startBroadcast();
+    function run() external {
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        vm.startBroadcast(deployerPrivateKey);
 
         SimpleERC721 simpleERC721 = new SimpleERC721("Test", "TEST");
 
